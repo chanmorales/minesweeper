@@ -15,7 +15,7 @@ import {
   Gold,
 } from "@/components";
 import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
-import { Timer } from "lucide-react";
+import { PartyPopper, Timer } from "lucide-react";
 import { timerHelper } from "@/helpers";
 
 export interface GameOverDialogProps {
@@ -50,14 +50,16 @@ export const GameOverDialog: FC<GameOverDialogProps> = ({
               <Gold width="256px" height="256px" className="glow glow-yellow" />
               <Alert className="border-none">
                 <AlertTitle>
-                  <div className="w-full flex justify-center items-center">
+                  <div className="w-full flex justify-center items-center gap-2">
+                    <PartyPopper />
                     <h4 className="scroll-m-20 text-xl font-semibold tracking-tight">
                       Congratulations!
                     </h4>
+                    <PartyPopper />
                   </div>
                 </AlertTitle>
                 <AlertDescription>
-                  <div className="flex items-center mt-4 gap-2">
+                  <div className="flex items-center justify-center mt-4 gap-2">
                     <Timer />
                     <div className="text-lg font-semibold">{`${difficulty}: ${timerHelper.formatTime(time)}`}</div>
                   </div>

@@ -17,6 +17,7 @@ export interface GamePausedDialogProps {
   open: boolean;
   elapsedSeconds: number;
   difficulty: string;
+  isTimeRunning: boolean;
   onResume: () => void;
   onRestart: () => void;
 }
@@ -27,6 +28,7 @@ export const GamePausedDialog: FC<GamePausedDialogProps> = ({
   difficulty,
   onResume,
   onRestart,
+  isTimeRunning,
 }) => {
   return (
     <Dialog open={open}>
@@ -43,7 +45,11 @@ export const GamePausedDialog: FC<GamePausedDialogProps> = ({
               <Clock />
               <span>Time</span>
             </div>
-            <span>{timerHelper.formatTime(elapsedSeconds)}</span>
+            <span>
+              {isTimeRunning
+                ? timerHelper.formatTime(elapsedSeconds)
+                : "-- : --"}
+            </span>
           </div>
           <div className="flex flex-col text-center gap-2">
             <div className="flex flex-row gap-2">

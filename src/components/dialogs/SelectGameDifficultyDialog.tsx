@@ -55,7 +55,9 @@ export const SelectGameDifficultyDialog: FC<
     <Dialog open={open}>
       <DialogContent className="sm:max-w-[350px]" showCloseButton={false}>
         <DialogHeader>
-          <DialogTitle>Select Game Difficulty</DialogTitle>
+          <DialogTitle className="text-center">
+            Select Game Difficulty
+          </DialogTitle>
         </DialogHeader>
         <VisuallyHidden asChild>
           <DialogDescription />

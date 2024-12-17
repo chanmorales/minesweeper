@@ -76,6 +76,7 @@ export const Game = () => {
         open={isGamePaused}
         elapsedSeconds={elapsedSeconds}
         difficulty={selectedDifficulty?.name ?? ""}
+        isTimeRunning={isMineFieldGenerated}
         onResume={() => setIsGamePaused(false)}
         onRestart={() => onNewGame()}
       />
