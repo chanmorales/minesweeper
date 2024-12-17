@@ -21,7 +21,7 @@ export const Routes = () => {
     },
   ];
 
-  const router = createBrowserRouter(routes);
+  const router = createBrowserRouter(routes, { basename: "/minesweeper" });
 
   return <RouterProvider router={router} />;
 };
