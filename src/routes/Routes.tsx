@@ -21,7 +21,9 @@ export const Routes = () => {
     },
   ];
 
-  const router = createBrowserRouter(routes, { basename: "/minesweeper" });
+  const router = createBrowserRouter(routes, {
+    basename: import.meta.env.BASE_URL,
+  });
 
   return <RouterProvider router={router} />;
 };
