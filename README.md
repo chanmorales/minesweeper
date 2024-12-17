@@ -1,50 +1,47 @@
-# React + TypeScript + Vite
+# Minesweeper
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A classic Minesweeper game implemented using React / Typescript. Test your logic and strategy skills
+by uncovering all safe tiles without detonating any mines!
 
-Currently, two official plugins are available:
+#### Table of Contents
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- [Features](#features)
+- [How to Play](#how-to-play)
+- [Screenshots](#screenshots)
 
-## Expanding the ESLint configuration
+### Features
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- **Multiple Difficulty Levels.** Choose from beginner, intermediate and expert mode.
+- **Intuitive Interface.** Flag mines and uncover tiles with simple controls.
+- **Custom Grid.** Set your own grid size and number of mines. (🚧 Work in Progress)
+- **Score Tracking.** Keep track of your best times for each difficulty level. (🚧 Work in Progress)
 
-- Configure the top-level `parserOptions` property like this:
+### How to Play
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+<ol>
+  <li><strong>Objective</strong></li>
+    <ul><li>Uncover all safe tiles on the grid without triggering any mines.</li></ul>
+  <li><strong>Controls</strong></li>
+    <ul><li><strong>Left click</strong> to uncover a tile.</li></ul>
+    <ul><li><strong>Right click</strong> to place or remove a flag on a suspected mine.</li></ul>
+    <ul><li><strong>Scroll click</strong> to reveal adjacent tiles if the correct number of flags is placed around the tile.</li></ul>
+  <li><strong>Rules</strong></li>
+    <ul><li>If you uncover a mine, the game is over.</li></ul>
+    <ul><li>Numbers on tiles indicates how many mines are adjacent to that tile.</li></ul>
+    <ul><li>Use logic and deduction to determine where mines are located.</li></ul>
+  <li>Learn more on how to play minesweeper <a href="https://minesweepergame.com/strategy/how-to-play-minesweeper.php" target="_blank">here</a></li>
+</ol>
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+### Screenshots
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+![Welcome](/src/assets/screenshots/home.png)
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+![Select Game Difficulty](/src/assets/screenshots/select-game-difficulty.png)
+
+![Minefield](/src/assets/screenshots/minefield.png)
+
+![Game Over](/src/assets/screenshots/game-over.png)
+
+#### [Play the game here](https://chanmorales.github.io/minesweeper/)
+
+Happy Minesweeping!
