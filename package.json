@@ -2,7 +2,7 @@
   "name": "minesweeper",
   "private": true,
   "version": "0.0.0",
-  "homepage": "https://github.com/chanmorales/minesweeper/",
+  "homepage": "https://chanmorales.github.io/minesweeper/",
   "type": "module",
   "scripts": {
     "dev": "vite",
