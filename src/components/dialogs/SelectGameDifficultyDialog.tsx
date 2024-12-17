@@ -7,11 +7,13 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
+  LearnMore,
   ToggleGroup,
   ToggleGroupItem,
 } from "@/components";
-import { FC, useCallback, useState } from "react";
-import { ADVANCED, EASY, GameDifficulty, INTERMEDIATE } from "@/types";
+import { FC, useCallback, useEffect, useState } from "react";
+import { BEGINNER, EXPERT, GameDifficulty, INTERMEDIATE } from "@/types";
+import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
 
 export interface SelectGameDifficultyDialogProps {
   open: boolean;
@@ -23,17 +25,23 @@ export const SelectGameDifficultyDialog: FC<
 > = ({ open, onSelectDifficulty }) => {
   const [selectedDifficulty, setSelectedDifficulty] = useState<string>();
 
+  useEffect(() => {
+    if (open) {
+      setSelectedDifficulty(undefined);
+    }
+  }, [open]);
+
   const onStart = useCallback(() => {
     let difficulty: GameDifficulty;
     switch (selectedDifficulty) {
-      case "easy":
-        difficulty = EASY;
+      case "beginner":
+        difficulty = BEGINNER;
         break;
       case "intermediate":
         difficulty = INTERMEDIATE;
         break;
-      case "advanced":
-        difficulty = ADVANCED;
+      case "expert":
+        difficulty = EXPERT;
         break;
       default:
         // Do nothing
@@ -45,11 +53,13 @@ export const SelectGameDifficultyDialog: FC<
 
   return (
     <Dialog open={open}>
-      <DialogContent className="sm:max-w-[300px]" showCloseButton={false}>
+      <DialogContent className="sm:max-w-[350px]" showCloseButton={false}>
         <DialogHeader>
           <DialogTitle>Select Game Difficulty</DialogTitle>
         </DialogHeader>
-        <DialogDescription />
+        <VisuallyHidden asChild>
+          <DialogDescription />
+        </VisuallyHidden>
         <div>
           <ToggleGroup
             type="single"
@@ -57,20 +67,27 @@ export const SelectGameDifficultyDialog: FC<
             onValueChange={(value) => setSelectedDifficulty(value)}
           >
             <div className="flex flex-col gap-4 w-full">
-              <ToggleGroupItem value="easy">Easy</ToggleGroupItem>
+              <ToggleGroupItem value="beginner">Beginner</ToggleGroupItem>
               <ToggleGroupItem value="intermediate">
                 Intermediate
               </ToggleGroupItem>
-              <ToggleGroupItem value="advanced">Advanced</ToggleGroupItem>
+              <ToggleGroupItem value="expert">Expert</ToggleGroupItem>
             </div>
           </ToggleGroup>
         </div>
         <DialogFooter>
-          <DialogTrigger asChild>
-            <Button disabled={!selectedDifficulty} onClick={onStart}>
-              START
-            </Button>
-          </DialogTrigger>
+          <div className="flex justify-between w-full">
+            <LearnMore />
+            <DialogTrigger asChild>
+              <Button
+                disabled={!selectedDifficulty}
+                onClick={onStart}
+                className="bg-sky-600 hover:bg-sky-800"
+              >
+                START
+              </Button>
+            </DialogTrigger>
+          </div>
         </DialogFooter>
       </DialogContent>
     </Dialog>

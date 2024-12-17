@@ -17,8 +17,8 @@ export interface GameDifficulty {
   mines: number;
 }
 
-export const EASY: GameDifficulty = {
-  name: "Easy",
+export const BEGINNER: GameDifficulty = {
+  name: "Beginner",
   rows: 9,
   columns: 9,
   mines: 10,
@@ -31,9 +31,15 @@ export const INTERMEDIATE: GameDifficulty = {
   mines: 40,
 };
 
-export const ADVANCED: GameDifficulty = {
-  name: "Advanced",
+export const EXPERT: GameDifficulty = {
+  name: "Expert",
   rows: 16,
   columns: 30,
   mines: 99,
 };
+
+export enum FieldState {
+  UNEXPLORED,
+  FLAGGED,
+  OPENED,
+}

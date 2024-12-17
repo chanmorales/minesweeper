@@ -3,8 +3,12 @@
   transition: filter 300ms;
 }
 
-.glow:hover {
+.glow-red:hover {
   filter: drop-shadow(0 0 2em #FF5C5CAA);
+}
+
+.glow-yellow:hover {
+  filter: drop-shadow(0 0 2em #FFEA00);
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -15,6 +19,11 @@
   .slow-spin-animation {
     animation: spin infinite 20s linear;
   }
+
+  .heartbeat-animation {
+    animation: heartbeat .5s infinite alternate;
+    transform-origin: center;
+  }
 }
 
 @keyframes spin {
@@ -23,5 +32,11 @@
   }
   to {
     transform: rotate(360deg);
+  }
+}
+
+@keyframes heartbeat {
+  to {
+    transform: scale(1.4);
   }
 }
