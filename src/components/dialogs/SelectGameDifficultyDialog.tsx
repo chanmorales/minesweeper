@@ -19,7 +19,7 @@ import {
 import { FC, useCallback, useEffect, useMemo, useState } from "react";
 import { BEGINNER, EXPERT, GameDifficulty, INTERMEDIATE } from "@/types";
 import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
-import { Settings, Sparkles } from "lucide-react";
+import { OctagonAlert, Settings, Sparkles } from "lucide-react";
 import {
   DEFAULT_CUSTOM_MINES,
   FIXED_MINES_AND_DIMENSIONS,
@@ -58,13 +58,14 @@ export const SelectGameDifficultyDialog: FC<
      * Checks if dimension is in range
      */
     const isConfigInvalid =
-      debouncedWidth < MIN_DIMENSION ||
-      debouncedWidth > MAX_DIMENSION ||
-      debouncedHeight < MIN_DIMENSION ||
-      debouncedHeight > MAX_DIMENSION ||
-      debouncedMines > debouncedWidth * debouncedHeight - 9;
+      selectedDifficulty === "custom" &&
+      (debouncedWidth < MIN_DIMENSION ||
+        debouncedWidth > MAX_DIMENSION ||
+        debouncedHeight < MIN_DIMENSION ||
+        debouncedHeight > MAX_DIMENSION ||
+        debouncedMines > debouncedWidth * debouncedHeight - 9);
     setIsCustomConfigValid(!isConfigInvalid);
-  }, [debouncedHeight, debouncedMines, debouncedWidth]);
+  }, [debouncedHeight, debouncedMines, debouncedWidth, selectedDifficulty]);
 
   const onSuggestMines = useCallback(() => {
     // Fixed dimensions and mines
@@ -249,12 +250,14 @@ export const SelectGameDifficultyDialog: FC<
                     </PopoverContent>
                   </Popover>
                 </div>
-                <p
-                  className="text-sm text-red-600"
-                  hidden={isCustomConfigValid}
+                <div
+                  className={`flex flex-row${isCustomConfigValid ? " hidden" : ""}`}
                 >
-                  Invalid custom configuration.
-                </p>
+                  <OctagonAlert className="w-4 h-4 mt-1 mr-1 text-red-600" />
+                  <p className="text-sm text-red-600">
+                    Invalid custom configuration.
+                  </p>
+                </div>
               </div>
             </div>
           </ToggleGroup>
