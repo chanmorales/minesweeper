@@ -29,7 +29,7 @@ by uncovering all safe tiles without detonating any mines!
     <ul><li>If you uncover a mine, the game is over.</li></ul>
     <ul><li>Numbers on tiles indicates how many mines are adjacent to that tile.</li></ul>
     <ul><li>Use logic and deduction to determine where mines are located.</li></ul>
-  <li>Learn more on how to play minesweeper <a href="https://minesweepergame.com/strategy/how-to-play-minesweeper.php" target="_blank">here</a></li>
+  <li>Learn more on how to play minesweeper <a href="https://minesweepergame.com/strategy/how-to-play-minesweeper.php" target="_blank">here</a>.</li>
 </ol>
 
 ### Screenshots
