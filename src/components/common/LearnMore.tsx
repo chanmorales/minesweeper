@@ -8,7 +8,7 @@ export const LearnMore = () => {
           Learn More
         </Button>
       </PopoverTrigger>
-      <PopoverContent>
+      <PopoverContent className="dark">
         <div className="flex flex-col gap-4">
           <div>
             <p className="leading-7 [&:not(:first-child)]:mt-6">

@@ -13,7 +13,7 @@ by uncovering all safe tiles without detonating any mines!
 
 - **Multiple Difficulty Levels.** Choose from beginner, intermediate and expert mode.
 - **Intuitive Interface.** Flag mines and uncover tiles with simple controls.
-- **Custom Grid.** Set your own grid size and number of mines. (🚧 Work in Progress)
+- **Custom Grid.** Set your own grid size and number of mines.
 - **Score Tracking.** Keep track of your best times for each difficulty level. (🚧 Work in Progress)
 
 ### How to Play

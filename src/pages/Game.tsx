@@ -56,7 +56,7 @@ export const Game = () => {
   return (
     <div
       id="game-container"
-      className={`w-full h-full${isGamePaused ? " blur" : ""}`}
+      className={`w-screen h-screen${isGamePaused ? " blur" : ""}`}
     >
       <GameProviderContext.Provider value={gameProviderContext}>
         <GameBoard />

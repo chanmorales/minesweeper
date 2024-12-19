@@ -8,14 +8,18 @@ export const GameBoard = () => {
   return (
     <div
       id="game-board-container"
-      className="flex flex-col w-full h-full justify-center items-center"
+      className="flex w-screen h-screen m-auto overflow-auto"
     >
-      <div hidden={!isGameReady}>
+      <div hidden={!isGameReady} className="m-auto">
         <Timer />
         <MineField />
       </div>
       {!isGameReady && (
-        <Mine width="240px" height="240px" className="heartbeat-animation" />
+        <Mine
+          width="240px"
+          height="240px"
+          className="heartbeat-animation max-h-full self-center m-auto"
+        />
       )}
     </div>
   );
